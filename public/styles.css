@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOPS Command Center</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-icon">◌</div>
+          <div>
+            <h1>NOPS Command Center</h1>
+            <p>Acoustic Prediction & ASW Intelligence</p>
+          </div>
+        </div>
+        <button id="resetBtn" class="ghost-btn">Reset Session</button>
+      </header>
+
+      <main class="main-layout">
+        <section class="dashboard-panel">
+          <div class="panel-header">
+            <h2>Sonar Dashboard</h2>
+            <button id="analyzeBtn" class="primary-btn">Analyze Bathymetry</button>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span class="label">Water Depth</span>
+              <strong id="depthVal">142 m</strong>
+            </div>
+            <div class="stat-card">
+              <span class="label">Sound Speed</span>
+              <strong id="soundVal">1487 m/s</strong>
+            </div>
+            <div class="stat-card">
+              <span class="label">Propagation</span>
+              <strong id="propVal">Stable</strong>
+            </div>
+            <div class="stat-card">
+              <span class="label">Terrain</span>
+              <strong id="terrainVal">Ridge</strong>
+            </div>
+          </div>
+
+          <div class="chart-panel">
+            <div class="chart-header">
+              <span>Bathymetry Profile</span>
+              <span id="sampleFileName">mock_bathymetry.tif</span>
+            </div>
+            <canvas id="bathymetryChart" width="760" height="260"></canvas>
+          </div>
+
+          <div class="upload-box">
+            <label for="fileInput" class="file-label">Upload .tif mock file</label>
+            <input id="fileInput" type="file" accept=".tif,.tiff" />
+            <small>Simulation mode only — no real TIFF parsing occurs.</small>
+          </div>
+        </section>
+
+        <aside class="chat-panel">
+          <div id="chatMessages" class="chat-messages"></div>
+
+          <div class="composer">
+            <textarea id="userInput" rows="3" placeholder="Ask about the bathymetry, propagation, or acoustic environment..."></textarea>
+            <button id="sendBtn" class="primary-btn wide">Send</button>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
